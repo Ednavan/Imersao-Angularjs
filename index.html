@@ -6,26 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="lib/angular/angular.min.js"></script>
+
 
     <title>ImersãoAngularjs</title>
+
+
 </head>
 <body ng-controller="indexController">
+
+    <header>
+        <table>
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Nota1</th>
+                <th>Nota2</th>
+                <th>Nota3</th>
+                <th>Média</th>
+            </tr>
+             </thead>
+             <tbody>
+                 <tr ng-repeat="aluno in alunos">
+                     <td>{{aluno.nome}}</td>
+                     <td>{{aluno.email}}</td>
+                     <td>{{aluno.nota1}}</td>
+                     <td>{{aluno.nota2}}</td>
+                     <td>{{aluno.nota3}}</td>
+                     <td>{{aluno.media}}</td>
+                 </tr>
+             </tbody>
+        </table>
+
+    </header>
     
-    <div id="content-import">
-        <h1 class="tittle">{{msg}}</h1>
-    </div>
+  
 
     <script>
     angular.module("myApp", []).controller("indexController", function($scope){
 
-        $scope.msg="Hello World!" 
+
+
+        $scope.alunos = [
+
+            {nome:"Camila", email: "camila@gmail.com", nota1:65, nota2: 80, nota3: 55, },
+            {nome:"Pedor", email: "Pedro@gmail.com", nota1:10, nota2: 25, nota3: 35},
+            {nome:"Carlos", email: "Carlos@gmail.com", nota1:18, nota2: 65, nota3: 89},
+        ];
     });
 
     </script>
 
 
 
-    <script src="lib/angular/angular.min.js"></script>
+    
     <script type="text/kavascript"></script>
 </body>
 </html>
