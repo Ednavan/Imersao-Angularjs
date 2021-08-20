@@ -15,15 +15,19 @@
 
 
 </head>
+<main>
 <body ng-controller="indexController">
+    
+  
 
-    <div class="row">
-       <input type="text" placeholder="busca" ng-model="busca">
-       {{busca}}
+   
+    
+    <header class="container">
 
-
-    </div>
-    <header>
+        <div class="row">
+            <input type="text" placeholder="busca" ng-model="busca">
+            {{busca}}
+         </div>
         <table class="striped"> <!--Essa class é do materialize-->
             <thead>
             <tr>
@@ -49,7 +53,8 @@
         </table>
 
     </header>
-    
+
+
   
 
     <script>
@@ -83,5 +88,7 @@
 
     
     <script type="text/kavascript"></script>
+
+</main>
 </body>
 </html>
