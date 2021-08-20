@@ -7,6 +7,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="lib/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
     <title>ImersãoAngularjs</title>
@@ -15,8 +17,14 @@
 </head>
 <body ng-controller="indexController">
 
+    <div class="row">
+       <input type="text" placeholder="busca" ng-model="busca">
+       {{busca}}
+
+
+    </div>
     <header>
-        <table>
+        <table class="striped"> <!--Essa class é do materialize-->
             <thead>
             <tr>
                 <th>Nome</th>
@@ -28,13 +36,14 @@
             </tr>
              </thead>
              <tbody>
-                 <tr ng-repeat="aluno in alunos">
+                 <tr ng-repeat="aluno in alunos | filter:busca">
                      <td>{{aluno.nome}}</td>
                      <td>{{aluno.email}}</td>
                      <td>{{aluno.nota1}}</td>
                      <td>{{aluno.nota2}}</td>
                      <td>{{aluno.nota3}}</td>
-                     <td>{{aluno.media}}</td>
+                     <td>{{media(aluno)}}</td>
+                    
                  </tr>
              </tbody>
         </table>
@@ -50,11 +59,23 @@
 
         $scope.alunos = [
 
-            {nome:"Camila", email: "camila@gmail.com", nota1:65, nota2: 80, nota3: 55, },
+            {nome:"Camila", email: "camila@gmail.com", nota1:65, nota2: 80, nota3: 55},
             {nome:"Pedor", email: "Pedro@gmail.com", nota1:10, nota2: 25, nota3: 35},
             {nome:"Carlos", email: "Carlos@gmail.com", nota1:18, nota2: 65, nota3: 89},
         ];
+
+
+        $scope.media = function(aluno){
+            var media = (aluno.nota1 + aluno.nota2 + aluno.nota3)/3;
+            return media.toFixed(2);
+        }
     });
+
+
+
+
+
+
 
     </script>
 
