@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="lib/angular/angular.min.js"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
@@ -55,7 +55,27 @@
     </header>
 
 
-  
+    <script src="lib/angular/angular.min.js"></script>
+
+        <script type="text/javascript">
+
+            
+            
+            
+        document.addEventListener('DOMContentLoaded', function() {
+         var elems = document.querySelectorAll('.modal');
+          var instances = M.Modal.init(modal1);
+    
+  });
+
+  // Or with jQuery
+
+       
+            
+
+
+        </script>
+
 
     <script>
     angular.module("myApp", []).controller("indexController", function($scope){
@@ -68,12 +88,23 @@
             {nome:"Pedor", email: "Pedro@gmail.com", nota1:10, nota2: 25, nota3: 35},
             {nome:"Carlos", email: "Carlos@gmail.com", nota1:18, nota2: 65, nota3: 89},
         ];
+        
+
+        var init = function(){
 
 
+        };
+
+
+        var contar= 0; /*contador que mostra a contagem das ações das interações no console*/
         $scope.media = function(aluno){
+            console.log(contar++);
             var media = (aluno.nota1 + aluno.nota2 + aluno.nota3)/3;
             return media.toFixed(2);
-        }
+            
+        };
+
+        init();
     });
 
 
@@ -90,5 +121,21 @@
     <script type="text/kavascript"></script>
 
 </main>
+
+
+  <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>BEM VINDO</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
 </body>
 </html>
